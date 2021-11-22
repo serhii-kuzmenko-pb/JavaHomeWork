@@ -6,6 +6,7 @@ public class OnlineShop {
     public static void main(String[] args) {
 
         try {
+
             Auth auth = new Auth();
             System.out.println("Зарегистрируйтесь");
             Scanner scanner = new Scanner(System.in);

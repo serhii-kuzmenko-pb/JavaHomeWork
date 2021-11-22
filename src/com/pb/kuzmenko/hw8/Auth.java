@@ -27,13 +27,13 @@ public class Auth {
 
     public static void signUp(String login, String password, String confirmPassword) throws WrongPasswordException, WrongLoginException {
 
-        String pattern1 = "[a-zA-Z0-9] {5,20}";
-        String pattern2 = "[a-zA-Z_0-9] {5,}";
+        String pattern1 = "[a-zA-Z0-9]{5,20}";
+        String pattern2 = "[a-zA-Z_0-9]{5,}";
 
         if (!login.matches(pattern1)) {
             throw new WrongLoginException("Логин должен быть от 5 до 20 символов и содержать только латинские буквы и цифры");
         } else if (!password.matches(pattern2)) {
-            throw new WrongPasswordException("Длинна более 5, только латинские буквы и цифры и знак подчеркивания");
+            throw new WrongPasswordException("Пароль должен быть более 5 символов, только латинские буквы и цифры и знак подчеркивания");
         } else if (!Objects.equals(password, confirmPassword)) {
             throw new WrongPasswordException("НЕправильно подтверждаете пароль");
         } else {
